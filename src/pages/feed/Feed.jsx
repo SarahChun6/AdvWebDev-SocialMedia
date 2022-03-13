@@ -1,7 +1,7 @@
 import './feed.css'
 import {useState, useEffect} from 'react'
 import SingularPost from '../../components/singularPost/SingularPost'
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { doc, deleteDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const Feed = () => {
     
@@ -24,10 +24,18 @@ const Feed = () => {
 
     }, [db])
 
+    const handleDelete = async(id) => {
+        const deleteDocRef = doc (db, 'feed', id)
+        await deleteDoc(deleteDocRef);
+
+        //manually deleting single post from feed array??
+        setFeedArray((oldVal)=>oldVal.filter((item)=>item.id !== id)) 
+    }
+
     return(
         <>
             <center>
-                <h1>Welcome to feed</h1>
+                <h1>Welcome to Feed</h1>
                 <br/>
 
                 {
@@ -36,6 +44,7 @@ const Feed = () => {
                         return (
                             <span key = {index}>
                                 <SingularPost props = {post}/>
+                                <SingularPost deleteFunction = {handleDelete} props = {post}/>
                                 <br/>
                             </span>
                         )

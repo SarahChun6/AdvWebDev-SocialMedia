@@ -6,13 +6,13 @@ import {getAuth}  from 'firebase/auth';
 import app from './tools/firebase';
 
 const App = ()=>{
-  const auth = getAuth()
+  const auth = getAuth(app)
 
   const [user, loading, error] = useAuthState(auth);
 
   return (
     <>
-      {user ? <Source/>:<Login/>}
+      {loading ? <center><h1>Loading...</h1></center> : error ? <center><h1>Error! Refresh?</h1></center> : user ? <Source/>:<Login/>}
     </>
   );
 }

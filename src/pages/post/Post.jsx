@@ -16,7 +16,8 @@ const Post = () =>{
         await addDoc(collectionRef, {
             message: message,
             author: auth.currentUser.displayName,
-            like: 0
+            like: 0,
+            uid: auth.current.User.uid,
         })
         setMessage('')
     }

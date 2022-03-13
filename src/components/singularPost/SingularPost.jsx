@@ -1,16 +1,20 @@
 import './singularPost.css'
 import {useState} from 'react'
 import {doc, updateDoc, getFirestore} from 'firebase/firestore'
-
-const SingularPost = ({props}) => {
+import {getAuth} from 'firebase/auth'
+const SingularPost = ({props, deleteFunction}) => {
+    //props is the data of the document that is passed in
+    //react can pass in functions as parameters
 
     const author = props.data().author
     const message = props.data().message
-    //const id = props.data().id;
+    const authorUID = props.data().uid
+    const auth = getAuth();
+    const db = getFirestore();
 
     const[like,setLike] = useState(props.data().like)
+    const[mathcUID, setMatchUID] = useState(false)
 
-    const db = getFirestore();
 
     const handleLike = async() =>{
         const docRef = doc(db, 'feed', props.id)
@@ -19,6 +23,7 @@ const SingularPost = ({props}) => {
         })
         setLike(like+1)
     }
+   
 
     return(
         <>
@@ -28,7 +33,9 @@ const SingularPost = ({props}) => {
                 <div className = 'authorButton-container'>
                     <h4>{author}</h4>
                     <button onClick = {handleLike}>{like}{' <3'}</button>
-                    </div>
+                    {authorUID == auth.currentUser.uid && <button onClick = {()=>deleteFunction}>X</button>}
+                
+                </div>
             </div>
         </>
     )
