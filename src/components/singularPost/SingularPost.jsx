@@ -10,8 +10,6 @@ const SingularPost = ({props, deleteFunction}) => {
     const author = props.data().author
     const message = props.data().message
     const authorUID = props.data().uid
-    console.log(props.data())
-    console.log(authorUID)
     const auth = getAuth();
     const db = getFirestore();
 
