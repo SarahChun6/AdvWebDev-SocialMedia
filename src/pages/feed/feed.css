@@ -1,3 +1,9 @@
 .h1{
-    color:red;
+    color:blue;
+    font-family:cursive;
+    font-size-adjust: inherit;
+}
+.body{
+    background-color:aquamarine;
+    color:aqua;
 }

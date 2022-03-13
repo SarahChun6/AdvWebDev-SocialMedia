@@ -43,7 +43,7 @@ const Feed = () => {
                         
                         return (
                             <span key = {index}>
-                                <SingularPost props = {post}/>
+                                
                                 <SingularPost deleteFunction = {handleDelete} props = {post}/>
                                 <br/>
                             </span>
