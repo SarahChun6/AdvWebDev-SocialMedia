@@ -34,23 +34,25 @@ const Feed = () => {
 
     return(
         <>
-            <center>
+            <div className='title'>
+                <center>
                 <h1>Welcome to Feed</h1>
                 <br/>
-
-                {
-                    feedArray.map((post,index) => {
-                        
-                        return (
-                            <span key = {index}>
-                                
-                                <SingularPost deleteFunction = {handleDelete} props = {post}/>
-                                <br/>
-                            </span>
-                        )
-                    })
-                }
-            </center>
+                <div className='body'>
+                    {
+                        feedArray.map((post,index) => {
+                            
+                            return (
+                                <span key = {index}>
+                                    <SingularPost deleteFunction = {handleDelete} props = {post}/>
+                                    <br/>
+                                </span>
+                            )
+                        })
+                    }
+                </div>  
+                </center>
+            </div>
         </>
     )
 }

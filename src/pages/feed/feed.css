@@ -1,9 +1,11 @@
-.h1{
-    color:blue;
-    font-family:cursive;
-    font-size-adjust: inherit;
+.title{
+    color:aqua;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:bold;
+    border:3px solid black;
 }
 .body{
     background-color:aquamarine;
-    color:aqua;
+    color:blue;
+    font-weight:light;
 }
