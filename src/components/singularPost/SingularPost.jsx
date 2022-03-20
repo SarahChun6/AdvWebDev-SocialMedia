@@ -33,8 +33,8 @@ const SingularPost = ({props, deleteFunction}) => {
                 <br/>
                 <div className = 'authorButton-container'>
                     <h4>{author}</h4>
-                    <button onClick = {handleLike}>{like}{' <3'}</button>
-                    {authorUID === auth.currentUser.uid && <button onClick = {()=>deleteFunction(props.id)}>X</button>}
+                    <button className='heart' onClick = {handleLike}>{like}</button>
+                    {authorUID === auth.currentUser.uid && <button className = 'delete' onClick = {()=>deleteFunction(props.id)}>X</button>}
                     {console.log(authorUID === auth.currentUser.uid)}
                 </div>
             </div>

@@ -1,11 +1,16 @@
 .title{
-    color:aqua;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(32, 158, 0);
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight:bold;
-    border:3px solid black;
+    border: 30px solid rgba(100, 248, 169, 0.616);
+    background-color:rgba(100, 248, 169, 0.616);
+    border-bottom:rgb(179, 237, 251);
+    border-left: none;
+    border-right: none;
 }
 .body{
-    background-color:aquamarine;
-    color:blue;
+    background-color:rgb(179, 237, 251);
+    color:rgb(129, 19, 255);
     font-weight:light;
+    
 }

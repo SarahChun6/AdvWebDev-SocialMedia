@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 import {doc, getFirestore, setDoc, addDoc, collection} from 'firebase/firestore' 
 import {getAuth} from 'firebase/auth';
+
 
 const Post = () =>{
 
@@ -41,7 +42,8 @@ const Post = () =>{
                 <button onClick = {handleMessageSend}>send</button>
                 <br/>
                 <button onClick = {() => {auth.signOut()}}>sign out</button>
-           
+                <br/>
+                
             </center>
         </>
     )

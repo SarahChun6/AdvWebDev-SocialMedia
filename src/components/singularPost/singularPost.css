@@ -1,7 +1,11 @@
 .singular-post-container{
+    font-family:Georgia, 'Times New Roman', Times, serif;
     width: 50vw;
     padding: 10px;
-    border: 3px solid black;
+    border-top: 3px solid rgb(148, 148, 148);
+    border-bottom: 3px solid rgb(148, 148, 148);
+    border-right: 3px solid rgb(209, 209, 209);
+    border-left: 3px solid rgb(209, 209, 209);
 }
 .authorButton-container{
     width: 100%;
@@ -12,3 +16,53 @@
 .authorButton-container > *{
     margin: auto 15px;
 }
+
+.heart {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius:50%;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 8px;
+    height: 16px;
+    border-radius: 50% 50% 0 0;
+    background: rgb(253, 108, 169);
+  }
+  
+.heart::before {
+    left: 8px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+
+  .heart:hover{
+    background-color: rgb(253, 108, 169);
+  }
+  
+
+  .delete{
+      color:rgb(85, 85, 85);
+      background-color: rgb(255, 92, 92);
+      border:none;
+      border-radius:50%;
+  }
+  .delete:hover{
+    color:rgb(255, 92, 92);
+    background-color: rgb(85, 85, 85);
+  }
