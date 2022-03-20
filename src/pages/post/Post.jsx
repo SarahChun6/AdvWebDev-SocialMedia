@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {doc, getFirestore, setDoc, addDoc, collection} from 'firebase/firestore' 
 import {getAuth} from 'firebase/auth';
+import { useNavigate } from "react-router-dom";
 
 
 const Post = () =>{
@@ -33,6 +34,16 @@ const Post = () =>{
         
     }, [db, auth])
     
+    
+    let navigate = useNavigate();
+  
+    function handleGoHome() {
+      navigate("/");
+    }
+    function handleGoFeed() {
+        navigate("/feed");
+    }
+    
     return (
         <>
             <center className="postContainer">
@@ -43,7 +54,9 @@ const Post = () =>{
                 <br/>
                 <button onClick = {() => {auth.signOut()}}>sign out</button>
                 <br/>
-                
+                <button onClick={handleGoHome}>home</button>
+                <button onClick={handleGoFeed}>feed</button>
+                <br/>
             </center>
         </>
     )

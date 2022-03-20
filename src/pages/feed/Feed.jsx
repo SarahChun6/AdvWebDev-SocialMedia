@@ -2,6 +2,7 @@ import './feed.css'
 import {useState, useEffect} from 'react'
 import SingularPost from '../../components/singularPost/SingularPost'
 import { doc, deleteDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
+import { useNavigate } from "react-router-dom";
 
 const Feed = () => {
     
@@ -32,6 +33,15 @@ const Feed = () => {
         setFeedArray((oldVal)=>oldVal.filter((item)=>item.id !== id)) 
     }
 
+    let navigate = useNavigate();
+  
+    function handleGoHome() {
+      navigate("/");
+    }
+    function handleGoPost() {
+        navigate("/post");
+    }
+
     return(
         <>
             <div className='title'>
@@ -50,7 +60,10 @@ const Feed = () => {
                             )
                         })
                     }
-                </div>  
+                </div>
+                <button onClick={handleGoHome}>home</button>
+                <button onClick={handleGoPost}>post</button>
+                 
                 </center>
             </div>
         </>
