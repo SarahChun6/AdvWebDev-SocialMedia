@@ -42,11 +42,26 @@ const Feed = () => {
         navigate("/post");
     }
 
+    const [theme, setTheme] = useState('light');
+    const handleLightDark = () => {
+        if(theme ==='light'){
+            setTheme('dark')
+        }
+        if(theme ==='dark'){
+            setTheme('light')
+        } 
+    }
+
     return(
         <>
-            <div className='title'>
+            <div className={theme}>
                 <center>
                 <h1>Welcome to Feed</h1>
+                <button className='lightDark' onClick={handleLightDark}>{theme}</button>
+                <br/>
+                <button className='home' onClick={handleGoHome}>home</button>
+                <button className='post' onClick={handleGoPost}>post</button>
+                <br/>
                 <br/>
                 <div className='body'>
                     {
@@ -61,9 +76,7 @@ const Feed = () => {
                         })
                     }
                 </div>
-                <button onClick={handleGoHome}>home</button>
-                <button onClick={handleGoPost}>post</button>
-                 
+                
                 </center>
             </div>
         </>
